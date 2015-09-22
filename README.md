@@ -1,2 +1,5 @@
-# C301-Assignment1
-Assignment 1 for CMPUT 301 - A Timer Game / Gameshow Buzzer App
+# C301
+A personal repository for all things CMPUT 301
+
+# Contains:
+Assignment 1 - A Timer Game / Gameshow Buzzer App
