@@ -1,0 +1,15 @@
+git clone
+git config
+git help
+git status
+git add
+git commit -a
+git mv // Can be used to rename a file
+git rm 
+git checkout [sha-1]
+git log
+git checkout -B name // make a branch with name 'name'
+gitk
+git pull
+git push
+git remote
