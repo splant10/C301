@@ -4,13 +4,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainScreen"
-    android:id="@+id/titleTextView">
+    android:id="@+id/titleTextView"
+    android:background="#260059">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Gameshow Reaction Buzzer 2000"
+        android:text="Gameshow Reaction\nBuzzer 2000"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -19,34 +20,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reaction Timer"
-        android:id="@+id/button"
-        android:layout_above="@+id/button2"
+        android:id="@+id/reactionButton"
+        android:layout_above="@+id/gameshowButton"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView"
         android:layout_marginBottom="28dp"
         android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:layout_alignEnd="@+id/textView"
+        android:onClick="reactionButtonClick"
+        android:nestedScrollingEnabled="false" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gameshow Buzzer"
-        android:id="@+id/button2"
+        android:id="@+id/gameshowButton"
         android:layout_marginBottom="30dp"
-        android:layout_above="@+id/button3"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button" />
+        android:layout_above="@+id/statsButton"
+        android:layout_alignLeft="@+id/reactionButton"
+        android:layout_alignStart="@+id/reactionButton"
+        android:layout_alignRight="@+id/reactionButton"
+        android:layout_alignEnd="@+id/reactionButton"
+        android:onClick="gameshowButtonClick"
+        android:nestedScrollingEnabled="false" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Statistics"
-        android:id="@+id/button3"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2"
-        android:layout_alignParentBottom="true" />
+        android:id="@+id/statsButton"
+        android:layout_alignLeft="@+id/gameshowButton"
+        android:layout_alignStart="@+id/gameshowButton"
+        android:layout_alignRight="@+id/gameshowButton"
+        android:layout_alignEnd="@+id/gameshowButton"
+        android:layout_alignParentBottom="true"
+        android:onClick="statsButtonClick" />
 </RelativeLayout>

@@ -1,48 +1,23 @@
 package ca.ualberta.splant.reactiongameshowbuzzer2000;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TabHost;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+public class GameShowActivity extends AppCompatActivity {
 
-public class MainScreen extends AppCompatActivity {
-
-    List<Player> Players = new ArrayList<Player>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_screen);
-    }
-
-    public void reactionButtonClick(View view) {
-        Intent intent= new Intent(this,ReactionActivity.class);
-        startActivity(intent);
-    }
-
-    public void gameshowButtonClick(View view) {
-        Intent intent= new Intent(this,GameShowActivity.class);
-        startActivity(intent);
-    }
-
-    public void statsButtonClick(View view) {
-        Intent intent= new Intent(this,StatisticsActivity.class);
-        startActivity(intent);
+        setContentView(R.layout.gameshow_buzzer);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_game_show, menu);
         return true;
     }
 

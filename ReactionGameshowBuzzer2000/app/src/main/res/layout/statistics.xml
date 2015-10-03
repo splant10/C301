@@ -25,27 +25,51 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
+                    android:id="@+id/tabGameshowBuzzStats"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Gameshow Buzzer Stats"
+                        android:id="@+id/BuzzerStatsTitleText"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="10dp" />
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/listView"
+                        android:layout_gravity="center_horizontal" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/tabReactionStats"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <EditText
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/reactionStatsTitleText"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Reaction Stats"
+                        android:id="@+id/reactionStatsTitleText"
+                        android:layout_gravity="center_horizontal" />
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/reactionStatsListView"
                         android:layout_gravity="center_horizontal" />
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/tabGameshowBuzzStats"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
-
             </FrameLayout>
+
         </LinearLayout>
     </TabHost>
 

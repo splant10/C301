@@ -1,48 +1,39 @@
 package ca.ualberta.splant.reactiongameshowbuzzer2000;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TabHost;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+public class StatisticsActivity extends AppCompatActivity {
 
-public class MainScreen extends AppCompatActivity {
-
-    List<Player> Players = new ArrayList<Player>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_screen);
-    }
+        setContentView(R.layout.statistics);
 
-    public void reactionButtonClick(View view) {
-        Intent intent= new Intent(this,ReactionActivity.class);
-        startActivity(intent);
-    }
+        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
 
-    public void gameshowButtonClick(View view) {
-        Intent intent= new Intent(this,GameShowActivity.class);
-        startActivity(intent);
-    }
+        tabHost.setup();
 
-    public void statsButtonClick(View view) {
-        Intent intent= new Intent(this,StatisticsActivity.class);
-        startActivity(intent);
+        TabHost.TabSpec tabSpec = tabHost.newTabSpec("ReactionStats");
+        tabSpec.setContent(R.id.tabReactionStats);
+        tabSpec.setIndicator("Reaction Stats");
+        tabHost.addTab(tabSpec);
+
+        tabSpec = tabHost.newTabSpec("BuzzerStats");
+        tabSpec.setContent(R.id.tabGameshowBuzzStats);
+        tabSpec.setIndicator("Gameshow Buzzer Stats");
+        tabHost.addTab(tabSpec);
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_statistics, menu);
         return true;
     }
 

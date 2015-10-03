@@ -16,6 +16,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".GameShowActivity"
+            android:label="@string/title_activity_game_show" >
+            <intent-filter>
+                <action android:name="android.intent.action.reactionButton" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ReactionActivity"
+            android:label="@string/title_activity_reaction" >
+            <intent-filter>
+                <action android:name="android.intent.action.gameshowButton" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".StatisticsActivity"
+            android:label="@string/title_activity_statistics" >
+            <intent-filter>
+                <action android:name="android.intent.action.statsButton" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
