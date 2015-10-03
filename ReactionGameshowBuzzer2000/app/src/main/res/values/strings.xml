@@ -7,4 +7,8 @@
     <string name="title_activity_game_show">GameShowActivity</string>
     <string name="title_activity_reaction">ReactionActivity</string>
     <string name="title_activity_statistics">StatisticsActivity</string>
+    <string name="title_activity_two_player_buzzer">TwoPlayerBuzzer</string>
+    <string name="title_activity_three_player_buzzer">ThreePlayerBuzzer</string>
+    <string name="title_activity_four_player">FourPlayerActivity</string>
+    <string name="title_activity_four_player_buzzer">FourPlayerBuzzer</string>
 </resources>

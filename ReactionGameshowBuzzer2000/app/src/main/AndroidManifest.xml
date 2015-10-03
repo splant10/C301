@@ -21,6 +21,7 @@
             android:label="@string/title_activity_game_show" >
             <intent-filter>
                 <action android:name="android.intent.action.reactionButton" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -29,6 +30,7 @@
             android:label="@string/title_activity_reaction" >
             <intent-filter>
                 <action android:name="android.intent.action.gameshowButton" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -37,8 +39,25 @@
             android:label="@string/title_activity_statistics" >
             <intent-filter>
                 <action android:name="android.intent.action.statsButton" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".TwoPlayerBuzzer"
+            android:label="@string/title_activity_two_player_buzzer" >
+        </activity>
+        <activity
+            android:name=".ThreePlayerBuzzer"
+            android:label="@string/title_activity_three_player_buzzer" >
+        </activity>
+        <activity
+            android:name=".FourPlayerActivity"
+            android:label="@string/title_activity_four_player" >
+        </activity>
+        <activity
+            android:name=".FourPlayerBuzzer"
+            android:label="@string/title_activity_four_player_buzzer" >
         </activity>
     </application>
 

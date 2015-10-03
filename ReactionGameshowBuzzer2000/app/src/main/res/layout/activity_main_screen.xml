@@ -11,10 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Gameshow Reaction\nBuzzer 2000"
+        android:text="Gameshow Reaction \nBuzzer 2000"
         android:id="@+id/textView"
+        android:layout_marginTop="37dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#f0f0f0" />
 
     <Button
         android:layout_width="wrap_content"

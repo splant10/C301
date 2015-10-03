@@ -9,7 +9,8 @@
         android:id="@+id/twoPlayerButton"
         android:layout_above="@+id/threePlayerButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="35dp" />
+        android:layout_marginBottom="35dp"
+        android:onClick="twoPlayerClick()" />
 
     <Button
         android:layout_width="wrap_content"
@@ -18,7 +19,8 @@
         android:id="@+id/threePlayerButton"
         android:layout_marginBottom="234dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="threePlayerClick()" />
 
     <Button
         android:layout_width="wrap_content"
@@ -28,5 +30,6 @@
         android:layout_alignTop="@+id/threePlayerButton"
         android:layout_alignLeft="@+id/threePlayerButton"
         android:layout_alignStart="@+id/threePlayerButton"
-        android:layout_marginTop="80dp" />
+        android:layout_marginTop="80dp"
+        android:onClick="fourPlayerClick()" />
 </RelativeLayout>
