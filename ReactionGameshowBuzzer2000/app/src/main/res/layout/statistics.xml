@@ -58,7 +58,8 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Reaction Stats"
                         android:id="@+id/reactionStatsTitleText"
-                        android:layout_gravity="center_horizontal" />
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="10dp" />
 
                     <ListView
                         android:layout_width="match_parent"

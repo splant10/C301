@@ -58,6 +58,8 @@ public class ReactionActivity extends MainScreen {
         return super.onOptionsItemSelected(item);
     }
 
+    // Make a countdown that ranges from 10ms to 2000ms. Upon finishing countdown,
+    // change the reactionImageView to be green
     public void CountDown() {
         final ImageView reactionImageView = (ImageView)findViewById(R.id.reactionImageView);
         Random r = new Random();
