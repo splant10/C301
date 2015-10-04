@@ -3,7 +3,7 @@ package ca.ualberta.splant.reactiongameshowbuzzer2000;
 /**
  * Created by splant on 10/2/15.
  */
-public class Player extends MeasurementManager {
+public class Player extends MainScreen {
 
     private int buzzClicks;
     private int reactionTime;

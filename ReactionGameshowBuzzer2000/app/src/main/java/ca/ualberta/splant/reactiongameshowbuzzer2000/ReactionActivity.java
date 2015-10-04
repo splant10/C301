@@ -1,16 +1,32 @@
 package ca.ualberta.splant.reactiongameshowbuzzer2000;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ReactionActivity extends ActionBarActivity {
+public class ReactionActivity extends MainScreen {
+
+    public Player player1 = new Player("Player 1");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reaction_timer);
+
+        new AlertDialog.Builder(this)
+                .setMessage(("Click the button below the box once the box changes color! " +
+                        "Be sure to not click it too early!"))
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with reaction timer; start countdown
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+
     }
 
     @Override

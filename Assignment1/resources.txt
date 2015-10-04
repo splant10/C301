@@ -3,3 +3,7 @@ http://stackoverflow.com/questions/2115758/how-to-display-alert-dialog-in-androi
 http://www.wikihow.com/Show-Alert-Dialog-in-Android
 
 http://stackoverflow.com/questions/2115758/how-to-display-alert-dialog-in-android
+
+http://stackoverflow.com/questions/6029495/how-can-i-generate-random-number-in-specific-range-in-android
+
+http://developer.android.com/reference/android/os/CountDownTimer.html

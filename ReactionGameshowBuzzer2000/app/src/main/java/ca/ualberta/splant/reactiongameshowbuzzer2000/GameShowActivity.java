@@ -12,6 +12,11 @@ import android.view.View;
 
 public class GameShowActivity extends MainScreen {
 
+    public Player player1 = new Player("Player 1");
+    public Player player2 = new Player("Player 2");
+    public Player player3 = new Player("Player 3");
+    public Player player4 = new Player("Player 4");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

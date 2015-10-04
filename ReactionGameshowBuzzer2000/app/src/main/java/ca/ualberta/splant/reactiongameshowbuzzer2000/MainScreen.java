@@ -17,11 +17,6 @@ import java.util.List;
 
 public class MainScreen extends AppCompatActivity {
 
-    public Player player1 = new Player("Player 1");
-    public Player player2 = new Player("Player 2");
-    public Player player3 = new Player("Player 3");
-    public Player player4 = new Player("Player 4");
-
     List<Player> Players = new ArrayList<Player>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
