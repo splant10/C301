@@ -2,10 +2,16 @@ package ca.ualberta.splant.reactiongameshowbuzzer2000;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import java.util.Random;
 
 public class ReactionActivity extends MainScreen {
 
@@ -17,11 +23,12 @@ public class ReactionActivity extends MainScreen {
         setContentView(R.layout.reaction_timer);
 
         new AlertDialog.Builder(this)
-                .setMessage(("Click the button below the box once the box changes color! " +
+                .setMessage(("Click the button below the box once the box changes color! \n" +
                         "Be sure to not click it too early!"))
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with reaction timer; start countdown
+                        CountDown();
                     }
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)
@@ -49,5 +56,73 @@ public class ReactionActivity extends MainScreen {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void CountDown() {
+        final ImageView reactionImageView = (ImageView)findViewById(R.id.reactionImageView);
+        Random r = new Random();
+        int timeDelay = r.nextInt(2000 - 10) + 10;
+        new CountDownTimer(timeDelay, 10) {
+
+            public void onTick(long millisUntilFinished) {
+                View.OnClickListener handler1 = new View.OnClickListener() {
+                    public void onClick(View v) {
+                        reactionImageView.setImageResource(R.drawable.redbox);
+                        cancel();
+                        alertOutcome(0, 0);
+                    }
+                };
+                Button reactButton = (Button)findViewById(R.id.reactionButton);
+                reactButton.setOnClickListener(handler1);
+            }
+            public void onFinish() {
+                reactionImageView.setImageResource(R.drawable.greenbox);
+                // make new system time
+                final long startTime = System.currentTimeMillis();
+                View.OnClickListener handler1 = new View.OnClickListener() {
+                    public void onClick(View v) {
+                        long endTime = System.currentTimeMillis();
+                        long diff = endTime-startTime;
+                        alertOutcome(1, diff);
+                    }
+                };
+                Button reactButton = (Button)findViewById(R.id.reactionButton);
+                reactButton.setOnClickListener(handler1);
+            }
+        }.start();
+    }
+
+    public void alertOutcome(int outcome, long time) {
+        final ImageView reactionImageView = (ImageView)findViewById(R.id.reactionImageView);
+        switch (outcome) {
+            case 0:
+                // Alert to a failure
+                new AlertDialog.Builder(this)
+                        .setMessage(("You clicked too early!"))
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // continue with reaction timer; start countdown
+                                reactionImageView.setImageResource(R.drawable.greybox);
+                                CountDown();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+                break;
+            case 1:
+                // Alert success, and time
+                new AlertDialog.Builder(this)
+                        .setMessage(("You reacted with a time of " + time + "ms"))
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // continue with reaction timer; start countdown
+                                reactionImageView.setImageResource(R.drawable.greybox);
+                                CountDown();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+                break;
+        }
     }
 }
