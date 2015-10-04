@@ -40,17 +40,17 @@ public class GameShowActivity extends MainScreen {
         return super.onOptionsItemSelected(item);
     }
 
-    public void twoPlayerClick(View view) {
+    public void twoPlayerGameClick(View view) {
         Intent intent= new Intent(this,TwoPlayerBuzzer.class);
         startActivity(intent);
     }
 
-    public void threePlayerClick(View view) {
+    public void threePlayerGameClick(View view) {
         Intent intent= new Intent(this,ThreePlayerBuzzer.class);
         startActivity(intent);
     }
 
-    public void fourPlayerClick(View view) {
+    public void fourPlayerGameClick(View view) {
         Intent intent= new Intent(this,FourPlayerBuzzer.class);
         startActivity(intent);
     }
@@ -60,47 +60,13 @@ public class GameShowActivity extends MainScreen {
     // http://stackoverflow.com/questions/2115758/how-to-display-alert-dialog-in-android
     public void alertWhoBuzzed(String name, int count) {
         new AlertDialog.Builder(this)
-                .setMessage(name + " was the first to buzz! That's " + count + "clicks for " + name + "!")
+                .setMessage(name + " was the first to buzz! That's " + count + " clicks for " + name + "!")
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue playing game
                     }
                 })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // return to main screen
-                        finish();
-                        Intent intent = new Intent(Intent.ACTION_MAIN);
-                        intent.addCategory(Intent.CATEGORY_HOME);
-                        startActivity(intent);
-                    }
-                })
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
-
-    public void player1Click() {
-        this.player1.incrementBuzzClicks();
-        // Alert that player1 buzzed first
-        alertWhoBuzzed(player1.getName(),player1.getBuzzClicks());
-    }
-
-    public void player2Click() {
-        this.player2.incrementBuzzClicks();
-        // Alert that player2 buzzed first
-        alertWhoBuzzed(player2.getName(),player2.getBuzzClicks());
-    }
-
-    public void player3Click() {
-        this.player3.incrementBuzzClicks();
-        // Alert that player3 buzzed first
-        alertWhoBuzzed(player3.getName(),player3.getBuzzClicks());
-    }
-
-    public void player4Click() {
-        this.player4.incrementBuzzClicks();
-        // Alert that player4 buzzed first
-        alertWhoBuzzed(player4.getName(),player4.getBuzzClicks());
-    }
-
 }

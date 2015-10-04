@@ -10,7 +10,7 @@
         android:layout_above="@+id/threePlayerButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="35dp"
-        android:onClick="twoPlayerClick()" />
+        android:onClick="twoPlayerGameClick" />
 
     <Button
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
         android:layout_marginBottom="234dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="threePlayerClick()" />
+        android:onClick="threePlayerGameClick" />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,5 +31,5 @@
         android:layout_alignLeft="@+id/threePlayerButton"
         android:layout_alignStart="@+id/threePlayerButton"
         android:layout_marginTop="80dp"
-        android:onClick="fourPlayerClick()" />
+        android:onClick="fourPlayerGameClick" />
 </RelativeLayout>

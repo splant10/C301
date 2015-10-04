@@ -10,11 +10,9 @@ import java.util.ArrayList;
 /**
  * Created by splant on 10/2/15.
  */
-public class MeasurementManager {
+public class MeasurementManager extends MainScreen {
 
     private static final String FILENAME = "file.sav";
-    private EditText bodyText;
-    private ListView oldTweetsList;
     private ArrayList<Player> players = new ArrayList<Player>();
     private ArrayAdapter<Player> adapter;
 
