@@ -2,6 +2,7 @@ package ca.ualberta.splant.reactiongameshowbuzzer2000;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -15,12 +16,16 @@ import java.util.Random;
 
 public class ReactionActivity extends MainScreen {
 
-    public Player player1 = new Player("Player 1");
+    public Player player1 = new Player("Player 1", 0);
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Provide Measurement Manager with player1
+        super.givePlayer(player1);
         setContentView(R.layout.reaction_timer);
+        intent = getIntent();
 
         new AlertDialog.Builder(this)
                 .setMessage(("Click the button below the box once the box changes color! \n" +
@@ -85,6 +90,7 @@ public class ReactionActivity extends MainScreen {
                     public void onClick(View v) {
                         long endTime = System.currentTimeMillis();
                         long diff = endTime-startTime;
+                        player1.setReactionTime(diff);
                         alertOutcome(1, diff);
                     }
                 };

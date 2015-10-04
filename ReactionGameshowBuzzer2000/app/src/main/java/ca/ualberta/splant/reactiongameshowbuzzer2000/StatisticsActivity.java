@@ -1,5 +1,6 @@
 package ca.ualberta.splant.reactiongameshowbuzzer2000;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
 
-public class StatisticsActivity extends AppCompatActivity {
+public class StatisticsActivity extends MainScreen {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

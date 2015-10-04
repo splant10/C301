@@ -12,6 +12,8 @@ public class TwoPlayerBuzzer extends GameShowActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two_player_buzzer);
+        super.player1.setState(0);
+        super.player2.setState(0);
     }
 
     @Override
@@ -37,14 +39,14 @@ public class TwoPlayerBuzzer extends GameShowActivity {
     }
 
     public void player1Click(View view) {
-        this.player1.incrementBuzzClicks();
+        super.player1.incrementBuzzClicks();
         // Alert that player1 buzzed first
-        super.alertWhoBuzzed(player1.getName(), player1.getBuzzClicks());
+        super.alertWhoBuzzed(player1.getName(), player1.getTwoPlayerClicks());
     }
 
     public void player2Click(View view) {
-        this.player2.incrementBuzzClicks();
+        super.player2.incrementBuzzClicks();
         // Alert that player2 buzzed first
-        super.alertWhoBuzzed(player2.getName(),player2.getBuzzClicks());
+        super.alertWhoBuzzed(player2.getName(),player2.getTwoPlayerClicks());
     }
 }

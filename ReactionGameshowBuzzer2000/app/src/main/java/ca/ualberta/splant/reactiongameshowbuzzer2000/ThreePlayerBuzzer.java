@@ -12,6 +12,9 @@ public class ThreePlayerBuzzer extends GameShowActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_three_player_buzzer);
+        super.player1.setState(1);
+        super.player2.setState(1);
+        super.player3.setState(1);
     }
 
     @Override
@@ -37,20 +40,20 @@ public class ThreePlayerBuzzer extends GameShowActivity {
     }
 
     public void player1Click(View view) {
-        this.player1.incrementBuzzClicks();
+        super.player1.incrementBuzzClicks();
         // Alert that player1 buzzed first
-        super.alertWhoBuzzed(player1.getName(), player1.getBuzzClicks());
+        super.alertWhoBuzzed(player1.getName(), player1.getThreePlayerClicks());
     }
 
     public void player2Click(View view) {
-        this.player2.incrementBuzzClicks();
+        super.player2.incrementBuzzClicks();
         // Alert that player2 buzzed first
-        super.alertWhoBuzzed(player2.getName(), player2.getBuzzClicks());
+        super.alertWhoBuzzed(player2.getName(), player2.getThreePlayerClicks());
     }
 
     public void player3Click(View view) {
-        this.player3.incrementBuzzClicks();
+        super.player3.incrementBuzzClicks();
         // Alert that player3 buzzed first
-        super.alertWhoBuzzed(player3.getName(),player3.getBuzzClicks());
+        super.alertWhoBuzzed(player3.getName(),player3.getThreePlayerClicks());
     }
 }

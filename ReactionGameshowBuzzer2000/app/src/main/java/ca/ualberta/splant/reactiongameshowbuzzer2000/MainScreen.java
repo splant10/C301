@@ -1,32 +1,26 @@
 package ca.ualberta.splant.reactiongameshowbuzzer2000;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TabHost;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+public class MainScreen extends Activity {
 
-public class MainScreen extends AppCompatActivity {
+    public StatsManager mm;
 
-    List<Player> Players = new ArrayList<Player>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+        mm = new StatsManager();
     }
 
     public void reactionButtonClick(View view) {
-        Intent intent= new Intent(this,ReactionActivity.class);
-        startActivity(intent);
+        Intent intentReaction= new Intent(this,ReactionActivity.class);
+        startActivity(intentReaction);
     }
 
     public void gameshowButtonClick(View view) {
@@ -60,4 +54,9 @@ public class MainScreen extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void givePlayer(Player p) {
+        this.mm.addPlayer(p);
+    }
+
 }
