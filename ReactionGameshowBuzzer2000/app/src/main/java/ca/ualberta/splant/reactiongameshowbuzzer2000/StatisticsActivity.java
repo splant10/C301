@@ -29,6 +29,10 @@ public class StatisticsActivity extends MainScreen {
         tabSpec.setIndicator("Gameshow Buzzer Stats");
         tabHost.addTab(tabSpec);
 
+        super.mm.getReacStats(10);  // Compute reaction stats for previous 10 entries
+        super.mm.getReacStats(100); // Compute reaction stats for previous 100 entries
+        super.mm.getReacStats(0);   // Compute reaction stats for all entries
+
     }
 
     @Override
@@ -52,4 +56,6 @@ public class StatisticsActivity extends MainScreen {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

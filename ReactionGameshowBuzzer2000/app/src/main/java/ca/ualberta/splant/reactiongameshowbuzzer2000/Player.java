@@ -51,6 +51,10 @@ public class Player {
         this.fourPlayerClicks = 0;
     }
 
+    public void clearReacTimes() {
+        reacTimes.clear();
+    }
+
     public long getReactionTime() {
         return reactionTime;
     }
