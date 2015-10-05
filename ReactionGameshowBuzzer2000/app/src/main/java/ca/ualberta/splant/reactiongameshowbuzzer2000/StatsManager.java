@@ -31,7 +31,7 @@ public class StatsManager extends Activity {
     private static final String FILENAME = "file.sav";
     private ArrayAdapter<Player> adapter;
 
-    private long min10, min100, minAll;
+    private long min10 = 1, min100, minAll;
     private long max10, max100, maxAll;
     private long avg10, avg100, avgAll;
     private long med10, med100, medAll;
@@ -99,6 +99,9 @@ public class StatsManager extends Activity {
         long avg = 0;
         int count = 0;
         ArrayList<Long> tempArray = new ArrayList<Long>();
+        if (players.size() == 0) {
+            this.min10 = 20;
+        }
         for (int j = 0; j < players.size(); ++j) {
             if (players.get(j).getType() == 0) { // if current player evaluated is a reaction player
                 if (i != 0) {
