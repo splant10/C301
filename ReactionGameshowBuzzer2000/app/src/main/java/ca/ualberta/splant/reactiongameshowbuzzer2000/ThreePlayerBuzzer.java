@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+// This class is the class that handles clicks for the 3player
+// buzz activity
 public class ThreePlayerBuzzer extends GameShowActivity {
 
     @Override

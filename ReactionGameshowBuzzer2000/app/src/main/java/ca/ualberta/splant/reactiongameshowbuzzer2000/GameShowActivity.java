@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+// This class manages the screen in between choosing the gameshow activity on MainScreen,
+// and choosing which type of gameshow activity to go to.
 public class GameShowActivity extends MainScreen {
 
     public Player player1 = new Player("Player 1", 1);

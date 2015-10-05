@@ -7,6 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+
+// The main activity. Manages buttons which link to the other activities: ReactionActivity,
+// StatisticsActivity, and GameShowActivity. Also creates StatsManager object which handles
+// the number crunching of stats for different players.
 public class MainScreen extends Activity {
 
     public StatsManager mm;

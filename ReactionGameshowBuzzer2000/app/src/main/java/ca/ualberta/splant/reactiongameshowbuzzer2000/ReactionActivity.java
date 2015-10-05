@@ -14,6 +14,9 @@ import android.widget.ImageView;
 
 import java.util.Random;
 
+// This class manages the Reaction Activity screen. The alert upon starting the activity
+// is handled here, as well as determining reaction times. Reaction times are set
+// on the Player object player1 here.
 public class ReactionActivity extends MainScreen {
 
     public Player player1 = new Player("Player 1", 0);
@@ -25,6 +28,7 @@ public class ReactionActivity extends MainScreen {
         super.givePlayer(player1);
         setContentView(R.layout.reaction_timer);
 
+        // Alert how to play game
         new AlertDialog.Builder(this)
                 .setMessage(("Click the button below the box once the box changes color! \n" +
                         "Be sure to not click it too early!"))
@@ -62,7 +66,8 @@ public class ReactionActivity extends MainScreen {
     }
 
     // Make a countdown that ranges from 10ms to 2000ms. Upon finishing countdown,
-    // change the reactionImageView to be green
+    // change the reactionImageView to be green, or if button is clicked before
+    // countdown finish, change the reactionImageView to be red.
     public void CountDown() {
         final ImageView reactionImageView = (ImageView)findViewById(R.id.reactionImageView);
         Random r = new Random();
@@ -70,6 +75,7 @@ public class ReactionActivity extends MainScreen {
         new CountDownTimer(timeDelay, 10) {
 
             public void onTick(long millisUntilFinished) {
+                // Click before the countdown is done, thus too early to click
                 View.OnClickListener handler1 = new View.OnClickListener() {
                     public void onClick(View v) {
                         reactionImageView.setImageResource(R.drawable.redbox);
@@ -81,6 +87,7 @@ public class ReactionActivity extends MainScreen {
                 reactButton.setOnClickListener(handler1);
             }
             public void onFinish() {
+                // change box to green to signal countdown is done.
                 reactionImageView.setImageResource(R.drawable.greenbox);
                 // make new system time
                 final long startTime = System.currentTimeMillis();
@@ -89,7 +96,7 @@ public class ReactionActivity extends MainScreen {
                         long endTime = System.currentTimeMillis();
                         long diff = endTime-startTime;
                         player1.setReactionTime(diff);
-                        // save();
+                        // save(); // would save here, however saving seems to be bugged.
                         alertOutcome(1, diff);
                     }
                 };
@@ -99,6 +106,9 @@ public class ReactionActivity extends MainScreen {
         }.start();
     }
 
+    // This function alerts the outcome of the reactiong game;
+    // if the player clicked too fast, it says so.
+    // if the player reacts properly, it displays the reaction time.
     public void alertOutcome(int outcome, long time) {
         final ImageView reactionImageView = (ImageView)findViewById(R.id.reactionImageView);
         switch (outcome) {

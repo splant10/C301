@@ -23,6 +23,13 @@ import java.util.Collections;
 
 /**
  * Created by splant on 10/2/15.
+ *
+ * This class is for managing all of the stats created by the players.
+ * This class accesses stats of players and computes the minimum, maximum, average,
+ * and median of a given previous 'i' reactions, and accesses each players
+ * buzzer click amounts for each gametype: 2player, 3player, or 4player.
+ *
+ * This class also maintains loading and saving from a file, and clearing stats.
  */
 public class StatsManager extends Activity {
 
@@ -141,6 +148,7 @@ public class StatsManager extends Activity {
                         ++count;
                     }
                 } else {
+                    // for each reaction time of the player
                     for (int m = 0; m < players.get(j).getReacTimes().size(); ++m) {
                         long val = players.get(j).getReacTimes().get(m);
                         tempArray.add(val);

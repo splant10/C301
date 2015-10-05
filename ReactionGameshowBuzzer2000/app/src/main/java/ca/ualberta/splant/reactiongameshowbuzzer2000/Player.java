@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 /**
  * Created by splant on 10/2/15.
+ *
+ * The Player class is a class that represents the player or players as objects.
+ * Each player has a reactionTime, a name, a state which says which type of game they are
+ * currently in, the amount of buzzclicks for each type of gameshow activity (2P, 3P or 4P),
+ * as well as an ArrayList of reaction times. The data that the player contains is accessed
+ * by the StatsManager object created in the main activity.
  */
 public class Player {
 
@@ -55,6 +61,8 @@ public class Player {
         reacTimes.clear();
     }
 
+    // in case the single most recent reaction time needs to be accessed.
+    // Currently not used.
     public long getReactionTime() {
         return reactionTime;
     }

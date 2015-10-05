@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+// This class is the class that handles clicks for the 4player
+// buzz activity
 public class FourPlayerBuzzer extends GameShowActivity {
 
     @Override

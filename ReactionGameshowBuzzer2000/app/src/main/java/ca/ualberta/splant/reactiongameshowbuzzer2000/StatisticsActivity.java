@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+
+// This class manages the Statistics Activity screen, by accessing the
+// StatisticsManager object created in the superclass MainScreen
 public class StatisticsActivity extends MainScreen {
 
     @Override
@@ -18,6 +21,7 @@ public class StatisticsActivity extends MainScreen {
         setContentView(R.layout.statistics);
         // super.mm.loadFromFile();
 
+        // Manage the tabs on the Stats page.
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
         TabHost.TabSpec tabSpec = tabHost.newTabSpec("ReactionStats");
@@ -30,10 +34,12 @@ public class StatisticsActivity extends MainScreen {
         tabSpec.setIndicator("Gameshow Buzzer Stats");
         tabHost.addTab(tabSpec);
 
+        // Calculate stats
         super.mm.getReacStats(10);  // Compute reaction stats for previous 10 entries
         super.mm.getReacStats(100); // Compute reaction stats for previous 100 entries
         super.mm.getReacStats(0);   // Compute reaction stats for all entries
 
+        // Update reaction stats.
         TextView text = (TextView)findViewById(R.id.last10Min);
         text.setText(String.valueOf(super.mm.getMin10()));
         text = (TextView)findViewById(R.id.last100Min);
@@ -62,7 +68,7 @@ public class StatisticsActivity extends MainScreen {
         text = (TextView)findViewById(R.id.allMed);
         text.setText(String.valueOf(super.mm.getMedAll()));
 
-        // Buzzer Stats:
+        // Update Buzzer Stats:
         text = (TextView)findViewById(R.id.twoPlayerP1);
         text.setText(String.valueOf(super.mm.getTwoPlayerP1()));
         text = (TextView)findViewById(R.id.twoPlayerP2);
@@ -107,6 +113,7 @@ public class StatisticsActivity extends MainScreen {
         return super.onOptionsItemSelected(item);
     }
 
+    // on click of clear stats button on reaction stats page:
     public void clearReacDataClick(View view) {
         // clear reaction stats
         super.mm.clearStats(0);
@@ -141,6 +148,7 @@ public class StatisticsActivity extends MainScreen {
 
     }
 
+    // on click of clear stats button on buzzer stats page:
     public void clearBuzzDataClick(View view) {
         super.mm.clearStats(1);
         // Buzzer Stats:
