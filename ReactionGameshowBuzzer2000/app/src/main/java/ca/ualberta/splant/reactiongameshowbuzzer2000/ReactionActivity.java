@@ -21,7 +21,7 @@ public class ReactionActivity extends MainScreen {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Provide Measurement Manager with player1
+        // Provide StatsManager with player1
         super.givePlayer(player1);
         setContentView(R.layout.reaction_timer);
 

@@ -13,7 +13,7 @@ public class Player {
     private String name;
     private int state; // 0: in two player game; 1: in three player game; 2: in four player game
     private int twoPlayerClicks, threePlayerClicks, fourPlayerClicks;
-    private ArrayList<Long> reacTimes = new ArrayList<Long>();
+    private static ArrayList<Long> reacTimes = new ArrayList<Long>();
 
     public Player (String name, int type) {
         this.buzzClicks = 0;

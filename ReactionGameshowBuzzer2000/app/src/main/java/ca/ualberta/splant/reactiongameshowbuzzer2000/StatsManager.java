@@ -26,12 +26,11 @@ import java.util.Collections;
  */
 public class StatsManager extends Activity {
 
-    private ArrayList<Player> players = new ArrayList<Player>();
+    private static ArrayList<Player> players = new ArrayList<Player>();
 
     private static final String FILENAME = "file.sav";
-    private ArrayAdapter<Player> adapter;
 
-    private long min10 = 1, min100, minAll;
+    private long min10, min100, minAll;
     private long max10, max100, maxAll;
     private long avg10, avg100, avgAll;
     private long med10, med100, medAll;
@@ -99,14 +98,11 @@ public class StatsManager extends Activity {
         long avg = 0;
         int count = 0;
         ArrayList<Long> tempArray = new ArrayList<Long>();
-        if (players.size() == 0) {
-            this.min10 = 20;
-        }
         for (int j = 0; j < players.size(); ++j) {
             if (players.get(j).getType() == 0) { // if current player evaluated is a reaction player
                 if (i != 0) {
-                    for (int m = 0; m < i; ++m) {
-                        long val = players.get(j).getReacTimes().get(players.get(j).getReacTimes().size() - m);
+                    for (int m = 0; (m < i) && (m < players.get(j).getReacTimes().size()); ++m) {
+                        long val = players.get(j).getReacTimes().get(players.get(j).getReacTimes().size()-m-1);
                         tempArray.add(val);
                         if (val < min) {
                             min = val;
@@ -115,6 +111,7 @@ public class StatsManager extends Activity {
                             max = val;
                         }
                         avg += val;
+                        ++count;
                     }
                 } else {
                     for (int m = 0; m < players.get(j).getReacTimes().size(); ++m) {
@@ -130,22 +127,34 @@ public class StatsManager extends Activity {
                         ++count;
                     }
                 }
-                avg = avg/i;
+
                 Collections.sort(tempArray);
                 if (i == 10) {
                     this.min10 = min;
                     this.max10 = max;
-                    this.avg10 = avg;
-                    this.med10 = tempArray.get(4);
+                    if (tempArray.size() >= 10) {
+                        this.med10 = tempArray.get(4);
+                        this.avg10 = avg/10;
+                    } else {
+                        this.med10 = tempArray.get(count/2);
+                        this.avg10 = avg/count;
+                    }
+
                 } else if (i == 100) {
                     this.min100 = min;
                     this.max100 = max;
-                    this.avg100 = avg;
-                    this.med100 = tempArray.get(49);
+                    if (tempArray.size() >= 100) {
+                        this.med100 = tempArray.get(49);
+                        this.avg100 = avg/100;
+                    } else {
+                        this.med100 = tempArray.get(count/2);
+                        this.avg100 = avg/count;
+                    }
+
                 } else { // Getting all
                     this.minAll = min;
                     this.maxAll = max;
-                    this.avgAll = avg;
+                    this.avgAll = avg/count;
                     if (count == 1) { // corner case
                         this.medAll = tempArray.get(0);
                     } else if (count % 2 == 0) { // even array length
@@ -161,7 +170,7 @@ public class StatsManager extends Activity {
     }
 
     public void addPlayer(Player p) {
-        players.add(p);
+        this.players.add(p);
     }
 
     public long getMin10() {
