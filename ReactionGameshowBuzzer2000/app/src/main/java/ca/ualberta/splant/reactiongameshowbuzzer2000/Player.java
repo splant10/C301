@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Player {
 
     private int buzzClicks;
-    private int type;
+    private int type; // reaction or buzzer player
     private long reactionTime;
     private String name;
     private int state; // 0: in two player game; 1: in three player game; 2: in four player game

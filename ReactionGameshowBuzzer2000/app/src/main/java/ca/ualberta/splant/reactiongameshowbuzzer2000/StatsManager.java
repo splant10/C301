@@ -36,7 +36,9 @@ public class StatsManager extends Activity {
     private long avg10, avg100, avgAll;
     private long med10, med100, medAll;
 
-    private int twoPlayerClicks, threePlayerClicks, fourPlayerClicks;
+    private int twoPlayerP1,   twoPlayerP2,
+                threePlayerP1, threePlayerP2, threePlayerP3,
+                fourPlayerP1,  fourPlayerP2,  fourPlayerP3,  fourPlayerP4;
 
     public StatsManager() {}
 
@@ -88,6 +90,32 @@ public class StatsManager extends Activity {
         } else { // i == 1: clear buzzer stats
             for (int j = 0; j < players.size(); ++i) {
                 players.get(j).clearBuzzClicks();
+            }
+        }
+    }
+
+    public void getBuzzerStats() {
+        for (int i=0; i < players.size(); ++i) {
+            if (players.get(i).getType() == 1) {
+                switch (i) {
+                    case 1:
+                        this.twoPlayerP1 = players.get(i).getTwoPlayerClicks();
+                        this.threePlayerP1 = players.get(i).getThreePlayerClicks();
+                        this.fourPlayerP1 = players.get(i).getFourPlayerClicks();
+                        break;
+                    case 2:
+                        this.twoPlayerP2 = players.get(i).getTwoPlayerClicks();
+                        this.threePlayerP2 = players.get(i).getThreePlayerClicks();
+                        this.fourPlayerP2 = players.get(i).getFourPlayerClicks();
+                        break;
+                    case 3:
+                        this.threePlayerP3 = players.get(i).getThreePlayerClicks();
+                        this.fourPlayerP3 = players.get(i).getFourPlayerClicks();
+                        break;
+                    case 4:
+                        this.fourPlayerP4 = players.get(i).getFourPlayerClicks();
+                        break;
+                }
             }
         }
     }
@@ -224,19 +252,39 @@ public class StatsManager extends Activity {
         return medAll;
     }
 
-    public int getTwoPlayerClicks() {
-        return twoPlayerClicks;
+    public int getTwoPlayerP1() {
+        return twoPlayerP1;
     }
 
-    public int getThreePlayerClicks() {
-        return threePlayerClicks;
+    public int getTwoPlayerP2() {
+        return twoPlayerP2;
     }
 
-    public int getFourPlayerClicks() {
-        return fourPlayerClicks;
+    public int getThreePlayerP1() {
+        return threePlayerP1;
     }
 
-    public int getPlayersSize() {
-        return playersSize;
+    public int getThreePlayerP2() {
+        return threePlayerP2;
+    }
+
+    public int getThreePlayerP3() {
+        return threePlayerP3;
+    }
+
+    public int getFourPlayerP1() {
+        return fourPlayerP1;
+    }
+
+    public int getFourPlayerP2() {
+        return fourPlayerP2;
+    }
+
+    public int getFourPlayerP3() {
+        return fourPlayerP3;
+    }
+
+    public int getFourPlayerP4() {
+        return fourPlayerP4;
     }
 }

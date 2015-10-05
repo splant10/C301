@@ -63,30 +63,25 @@ public class StatisticsActivity extends MainScreen {
 
         // Buzzer Stats:
         text = (TextView)findViewById(R.id.twoPlayerP1);
-
-        // iterate over each player, and get clicks.
-        for (int i=0; i < super.mm.getPlayersSize(); ++i) {
-            super.mm.players.get(i).getTwoPlayerClicks();
-        }
-        text.setText(" ");
+        text.setText(String.valueOf(super.mm.getTwoPlayerP1()));
         text = (TextView)findViewById(R.id.twoPlayerP2);
-        text.setText(" ");
+        text.setText(String.valueOf(super.mm.getTwoPlayerP2()));
 
         text = (TextView)findViewById(R.id.threePlayerP1);
-        text.setText(" ");
+        text.setText(String.valueOf(super.mm.getThreePlayerP1()));
         text = (TextView)findViewById(R.id.threePlayerP2);
-        text.setText(" ");
+        text.setText(String.valueOf(super.mm.getThreePlayerP2()));
         text = (TextView)findViewById(R.id.threePlayerP3);
-        text.setText(" ");
+        text.setText(String.valueOf(super.mm.getThreePlayerP3()));
 
         text = (TextView)findViewById(R.id.fourPlayerP1);
-        text.setText(" ");
+        text.setText(String.valueOf(super.mm.getFourPlayerP1()));
         text = (TextView)findViewById(R.id.fourPlayerP2);
-        text.setText(" ");
+        text.setText(String.valueOf(super.mm.getFourPlayerP2()));
         text = (TextView)findViewById(R.id.fourPlayerP3);
-        text.setText(" ");
+        text.setText(String.valueOf(super.mm.getFourPlayerP3()));
         text = (TextView)findViewById(R.id.fourPlayerP4);
-        text.setText(" ");
+        text.setText(String.valueOf(super.mm.getFourPlayerP4()));
     }
 
     @Override
