@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -106,5 +107,62 @@ public class StatisticsActivity extends MainScreen {
         return super.onOptionsItemSelected(item);
     }
 
+    public void clearReacDataClick(View view) {
+        // clear reaction stats
+        super.mm.clearStats(0);
 
+        TextView text = (TextView)findViewById(R.id.last10Min);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.last100Min);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.allMin);
+        text.setText("0");
+
+        text = (TextView)findViewById(R.id.last10Max);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.last100Max);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.allMax);
+        text.setText("0");
+
+        text = (TextView)findViewById(R.id.last10Avg);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.last100Avg);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.allAvg);
+        text.setText("0");
+
+        text = (TextView)findViewById(R.id.last10Med);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.last100Med);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.allMed);
+        text.setText("0");
+
+    }
+
+    public void clearBuzzDataClick(View view) {
+        super.mm.clearStats(1);
+        // Buzzer Stats:
+        TextView text = (TextView)findViewById(R.id.twoPlayerP1);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.twoPlayerP2);
+        text.setText("0");
+
+        text = (TextView)findViewById(R.id.threePlayerP1);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.threePlayerP2);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.threePlayerP3);
+        text.setText("0");
+
+        text = (TextView)findViewById(R.id.fourPlayerP1);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.fourPlayerP2);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.fourPlayerP3);
+        text.setText("0");
+        text = (TextView)findViewById(R.id.fourPlayerP4);
+        text.setText("0");
+    }
 }

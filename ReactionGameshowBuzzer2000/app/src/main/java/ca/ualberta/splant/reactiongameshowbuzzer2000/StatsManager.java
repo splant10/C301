@@ -27,7 +27,6 @@ import java.util.Collections;
 public class StatsManager extends Activity {
 
     public static ArrayList<Player> players = new ArrayList<Player>();
-    private int playersSize = players.size();
 
     private static final String FILENAME = "file.sav";
 
@@ -42,16 +41,9 @@ public class StatsManager extends Activity {
 
     public StatsManager() {}
 
-    @Override
-    protected void onStart() {
-        // TODO Auto-generated method stub
-        super.onStart();
-        loadFromFile();
-    }
-
     public void loadFromFile() {
         try {
-            FileInputStream fis = openFileInput(FILENAME);
+            FileInputStream fis = openFileInput(this.FILENAME);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
             Gson gson = new Gson();
             // Following line based on https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html
@@ -67,7 +59,7 @@ public class StatsManager extends Activity {
 
     public void saveInFile() {
         try {
-            FileOutputStream fos = openFileOutput(FILENAME, 0);
+            FileOutputStream fos = openFileOutput(this.FILENAME, 0);
             OutputStreamWriter writer = new OutputStreamWriter(fos);
             Gson gson = new Gson();
             gson.toJson(players, writer);
@@ -94,6 +86,7 @@ public class StatsManager extends Activity {
         }
     }
 
+    // Get the buzzer statistics for the four players
     public void getBuzzerStats() {
         for (int i=0; i < players.size(); ++i) {
             if (players.get(i).getType() == 1) {
@@ -124,15 +117,18 @@ public class StatsManager extends Activity {
     // Get the last i average reaction times; if i = 0, get all
     // Get the last i median  reaction times; if i = 0, get all
     public void getReacStats(int i) {
-        long min = 999999;
+        long min = Long.MAX_VALUE;
         long max = -1;
         long avg = 0;
         int count = 0;
+        // tempArray is for sorting values to get median
         ArrayList<Long> tempArray = new ArrayList<Long>();
         for (int j = 0; j < players.size(); ++j) {
             if (players.get(j).getType() == 0) { // if current player evaluated is a reaction player
                 if (i != 0) {
+                    // for m < i and m < the amount of reaction times for current player
                     for (int m = 0; (m < i) && (m < players.get(j).getReacTimes().size()); ++m) {
+                        // val == players[j].reactionTimes[players[j].reactionTimes.size()-m-1]
                         long val = players.get(j).getReacTimes().get(players.get(j).getReacTimes().size()-m-1);
                         tempArray.add(val);
                         if (val < min) {
@@ -160,7 +156,7 @@ public class StatsManager extends Activity {
                 }
 
                 Collections.sort(tempArray);
-                if (i == 10) {
+                if (i == 10) { // get last 10 reaction time stats
                     this.min10 = min;
                     this.max10 = max;
                     if (tempArray.size() >= 10) {
@@ -171,7 +167,7 @@ public class StatsManager extends Activity {
                         this.avg10 = avg/count;
                     }
 
-                } else if (i == 100) {
+                } else if (i == 100) { // get last 100 reaction time stats
                     this.min100 = min;
                     this.max100 = max;
                     if (tempArray.size() >= 100) {

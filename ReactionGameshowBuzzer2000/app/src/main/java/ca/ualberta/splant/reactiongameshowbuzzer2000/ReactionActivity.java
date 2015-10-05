@@ -89,6 +89,7 @@ public class ReactionActivity extends MainScreen {
                         long endTime = System.currentTimeMillis();
                         long diff = endTime-startTime;
                         player1.setReactionTime(diff);
+                        // save();
                         alertOutcome(1, diff);
                     }
                 };
@@ -130,5 +131,10 @@ public class ReactionActivity extends MainScreen {
                         .show();
                 break;
         }
+    }
+
+    // should access the StatsManager object in the main activity, and save.
+    void save() {
+        super.mm.saveInFile();
     }
 }

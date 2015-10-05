@@ -12,6 +12,13 @@ public class MainScreen extends Activity {
     public StatsManager mm;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        // mm.saveInFile();
+        // mm.loadFromFile();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);

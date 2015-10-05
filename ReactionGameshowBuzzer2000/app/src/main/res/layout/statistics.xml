@@ -522,11 +522,30 @@
 
                     </TableLayout>
 
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Clear Reaction Data"
+                        android:id="@+id/clearData"
+                        android:layout_marginTop="200dp"
+                        android:nestedScrollingEnabled="false"
+                        android:onClick="clearReacDataClick" />
+
                 </LinearLayout>
 
             </FrameLayout>
 
         </LinearLayout>
     </TabHost>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear Buzzer Data"
+        android:id="@+id/button"
+        android:layout_marginTop="70dp"
+        android:nestedScrollingEnabled="false"
+        android:onClick="clearBuzzDataClick"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
