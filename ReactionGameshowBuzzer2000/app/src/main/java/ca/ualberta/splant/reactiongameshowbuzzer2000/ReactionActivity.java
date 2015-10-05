@@ -17,7 +17,6 @@ import java.util.Random;
 public class ReactionActivity extends MainScreen {
 
     public Player player1 = new Player("Player 1", 0);
-    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +24,6 @@ public class ReactionActivity extends MainScreen {
         // Provide Measurement Manager with player1
         super.givePlayer(player1);
         setContentView(R.layout.reaction_timer);
-        intent = getIntent();
 
         new AlertDialog.Builder(this)
                 .setMessage(("Click the button below the box once the box changes color! \n" +

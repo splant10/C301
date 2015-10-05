@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 public class StatisticsActivity extends MainScreen {
 
@@ -16,9 +17,7 @@ public class StatisticsActivity extends MainScreen {
         setContentView(R.layout.statistics);
 
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
-
         tabHost.setup();
-
         TabHost.TabSpec tabSpec = tabHost.newTabSpec("ReactionStats");
         tabSpec.setContent(R.id.tabReactionStats);
         tabSpec.setIndicator("Reaction Stats");
@@ -33,6 +32,33 @@ public class StatisticsActivity extends MainScreen {
         super.mm.getReacStats(100); // Compute reaction stats for previous 100 entries
         super.mm.getReacStats(0);   // Compute reaction stats for all entries
 
+        TextView text = (TextView)findViewById(R.id.last10Min);
+        text.setText(String.valueOf(super.mm.getMin10()));
+        text = (TextView)findViewById(R.id.last100Min);
+        text.setText(String.valueOf(super.mm.getMin100()));
+        text = (TextView)findViewById(R.id.allMin);
+        text.setText(String.valueOf(super.mm.getMinAll()));
+
+        text = (TextView)findViewById(R.id.last10Max);
+        text.setText(String.valueOf(super.mm.getMax10()));
+        text = (TextView)findViewById(R.id.last100Max);
+        text.setText(String.valueOf(super.mm.getMax100()));
+        text = (TextView)findViewById(R.id.allMax);
+        text.setText(String.valueOf(super.mm.getMaxAll()));
+
+        text = (TextView)findViewById(R.id.last10Avg);
+        text.setText(String.valueOf(super.mm.getAvg10()));
+        text = (TextView)findViewById(R.id.last100Avg);
+        text.setText(String.valueOf(super.mm.getAvg100()));
+        text = (TextView)findViewById(R.id.allAvg);
+        text.setText(String.valueOf(super.mm.getAvgAll()));
+
+        text = (TextView)findViewById(R.id.last10Med);
+        text.setText(String.valueOf(super.mm.getMed10()));
+        text = (TextView)findViewById(R.id.last100Med);
+        text.setText(String.valueOf(super.mm.getMed100()));
+        text = (TextView)findViewById(R.id.allMed);
+        text.setText(String.valueOf(super.mm.getMedAll()));
     }
 
     @Override

@@ -38,7 +38,14 @@ public class StatsManager extends Activity {
 
     public StatsManager() {}
 
-    private void loadFromFile() {
+    @Override
+    protected void onStart() {
+        // TODO Auto-generated method stub
+        super.onStart();
+        loadFromFile();
+    }
+
+    public void loadFromFile() {
         try {
             FileInputStream fis = openFileInput(FILENAME);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
@@ -54,7 +61,7 @@ public class StatsManager extends Activity {
         }
     }
 
-    private void saveInFile() {
+    public void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME, 0);
             OutputStreamWriter writer = new OutputStreamWriter(fos);
@@ -152,5 +159,53 @@ public class StatsManager extends Activity {
 
     public void addPlayer(Player p) {
         players.add(p);
+    }
+
+    public long getMin10() {
+        return min10;
+    }
+
+    public long getMin100() {
+        return min100;
+    }
+
+    public long getMinAll() {
+        return minAll;
+    }
+
+    public long getMax10() {
+        return max10;
+    }
+
+    public long getMax100() {
+        return max100;
+    }
+
+    public long getMaxAll() {
+        return maxAll;
+    }
+
+    public long getAvg10() {
+        return avg10;
+    }
+
+    public long getAvg100() {
+        return avg100;
+    }
+
+    public long getAvgAll() {
+        return avgAll;
+    }
+
+    public long getMed10() {
+        return med10;
+    }
+
+    public long getMed100() {
+        return med100;
+    }
+
+    public long getMedAll() {
+        return medAll;
     }
 }
