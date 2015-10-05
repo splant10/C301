@@ -15,6 +15,7 @@ public class StatisticsActivity extends MainScreen {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statistics);
+        // super.mm.loadFromFile();
 
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
@@ -59,6 +60,33 @@ public class StatisticsActivity extends MainScreen {
         text.setText(String.valueOf(super.mm.getMed100()));
         text = (TextView)findViewById(R.id.allMed);
         text.setText(String.valueOf(super.mm.getMedAll()));
+
+        // Buzzer Stats:
+        text = (TextView)findViewById(R.id.twoPlayerP1);
+
+        // iterate over each player, and get clicks.
+        for (int i=0; i < super.mm.getPlayersSize(); ++i) {
+            super.mm.players.get(i).getTwoPlayerClicks();
+        }
+        text.setText(" ");
+        text = (TextView)findViewById(R.id.twoPlayerP2);
+        text.setText(" ");
+
+        text = (TextView)findViewById(R.id.threePlayerP1);
+        text.setText(" ");
+        text = (TextView)findViewById(R.id.threePlayerP2);
+        text.setText(" ");
+        text = (TextView)findViewById(R.id.threePlayerP3);
+        text.setText(" ");
+
+        text = (TextView)findViewById(R.id.fourPlayerP1);
+        text.setText(" ");
+        text = (TextView)findViewById(R.id.fourPlayerP2);
+        text.setText(" ");
+        text = (TextView)findViewById(R.id.fourPlayerP3);
+        text.setText(" ");
+        text = (TextView)findViewById(R.id.fourPlayerP4);
+        text.setText(" ");
     }
 
     @Override

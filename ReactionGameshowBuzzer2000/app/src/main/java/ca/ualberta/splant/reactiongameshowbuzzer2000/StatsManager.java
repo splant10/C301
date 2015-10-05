@@ -26,7 +26,8 @@ import java.util.Collections;
  */
 public class StatsManager extends Activity {
 
-    private static ArrayList<Player> players = new ArrayList<Player>();
+    public static ArrayList<Player> players = new ArrayList<Player>();
+    private int playersSize = players.size();
 
     private static final String FILENAME = "file.sav";
 
@@ -34,6 +35,8 @@ public class StatsManager extends Activity {
     private long max10, max100, maxAll;
     private long avg10, avg100, avgAll;
     private long med10, med100, medAll;
+
+    private int twoPlayerClicks, threePlayerClicks, fourPlayerClicks;
 
     public StatsManager() {}
 
@@ -54,7 +57,7 @@ public class StatsManager extends Activity {
             players = gson.fromJson(in, listType);
 
         } catch (FileNotFoundException e) {
-            //players = new ArrayList<Player>();
+            players = new ArrayList<Player>();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -219,5 +222,21 @@ public class StatsManager extends Activity {
 
     public long getMedAll() {
         return medAll;
+    }
+
+    public int getTwoPlayerClicks() {
+        return twoPlayerClicks;
+    }
+
+    public int getThreePlayerClicks() {
+        return threePlayerClicks;
+    }
+
+    public int getFourPlayerClicks() {
+        return fourPlayerClicks;
+    }
+
+    public int getPlayersSize() {
+        return playersSize;
     }
 }
